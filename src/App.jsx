@@ -6,6 +6,7 @@ import ElectionResults from './components/ElectionResults';
 import AdminDashboard from './components/AdminDashboard';
 import Footer from './components/Footer';
 import { candidates, currentElection, currentVoter, adminStats } from './data/mockData';
+import { BrowserRouter , Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -44,6 +45,7 @@ function App() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
+       {/* <Router> */}
       <Header 
         currentPage={currentPage} 
         setCurrentPage={setCurrentPage}
@@ -53,7 +55,9 @@ function App() {
       />
       
       <main className="flex-grow py-4 px-4">
-        {!isAuthenticated ? (
+      
+       
+        {/* {!isAuthenticated ? (
           <Login onLogin={handleLogin} />
         ) : (
           <div className="container mx-auto">
@@ -74,10 +78,37 @@ function App() {
                 stats={adminStats}
                 electionTitle={currentElection.title}
               />
-            )}
-          </div>
-        )}
+            )} */}
+          {/* </div>
+        )} */}
       </main>
+      {/* <Switch> */}
+      <Routes>
+        {/* <Route path="/votingbooth">
+        <VotingBooth/>
+        </Route> */}
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/admin-dashboard" element={<AdminDashboard/>} />
+        {/* <Route path="/login" element={<Login/>}> */}
+
+        {/* <Route path="/images">
+          <Images/> 
+        </Route
+        <Route path="/pdf">
+          <Pdfcollection/>
+        </Route>
+        <Route path="/login">
+          <Login/> 
+        </Route>
+        <Route path="/signup">
+          <Signup/> 
+        </Route>
+        <Route path="/">
+          <Home/>
+        </Route> */}
+      {/* </Switch> */}
+      </Routes>
+    {/* </Router> */}
       
       <Footer />
     </div>

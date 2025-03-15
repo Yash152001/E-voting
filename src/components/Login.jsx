@@ -12,9 +12,6 @@ const Login = ({ onLogin }) => {
       setError('Please fill in all fields');
       return;
     }
-    
-    // In a real app, this would validate against a blockchain wallet or identity system
-    onLogin(voterId, password);
   };
 
   return (
@@ -48,7 +45,7 @@ const Login = ({ onLogin }) => {
         )}
         
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          <div className="rounded-md shadow-sm -space-y-px">
+          <div className="rounded-md flex flex-col gap-4 shadow-sm -space-y-px">
             <div>
               <label htmlFor="voter-id" className="sr-only">Voter ID</label>
               <div className="flex items-center">
@@ -67,7 +64,7 @@ const Login = ({ onLogin }) => {
                 />
               </div>
             </div>
-            <div className="mt-4">
+            <div className="">
               <label htmlFor="password" className="sr-only">Password or Private Key</label>
               <div className="flex items-center">
                 <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500">
@@ -100,9 +97,6 @@ const Login = ({ onLogin }) => {
           </div>
           
           <div className="text-center text-sm text-gray-600">
-            <p>Demo credentials:</p>
-            <p>Voter: voter-123 / password123</p>
-            <p>Admin: admin / admin123</p>
           </div>
         </form>
       </div>
